@@ -6,6 +6,14 @@ by breaking apart view components and wiring up sample json data.
 
 Very much based on Pete Hunt's [One Hour Email][one-hour-email] repo.
 
+Dev setup:
+clone the repo and cd into the dir:
+```
+npm install
+node .
+open http://localhost:4000
+```
+
 [one-hour-email]: https://github.com/petehunt/react-one-hour-email
 
 Pure CSS Layout Examples

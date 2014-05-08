@@ -72,102 +72,23 @@ var EmailItem = React.createClass({
 });
 var List = React.createClass({
   render: function() {
+    emailItems = this.props.mails.map(function(mail) {
+      return (
+        <EmailItem
+          name={mail.name}
+          subject={mail.subject}
+          selected={mail.selected}
+          unread={mail.unread}
+          avatar={mail.avatar}
+          >
+          {mail.desc}
+        </EmailItem>
+      );
+    });
+
     return (
       <div id="list" className="pure-u-1">
-        <EmailItem
-          name="Tilo Mitra"
-          subject="Hello from Toronto"
-          selected={true}
-          unread={false}
-          avatar="img/common/tilo-avatar.png"
-          >
-          Hey, I just wanted to check in with you from Toronto. I got here earlier today.
-        </EmailItem>
-
-          <div className="email-item email-item-unread pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="64" width="64" src="img/common/ericf-avatar.png" />
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">Eric Ferraiuolo</h5>
-                  <h4 className="email-subject">Re: Pull Requests</h4>
-                  <p className="email-desc">
-                      Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.
-                  </p>
-              </div>
-          </div>
-
-          <div className="email-item email-item-unread pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="YUI&#x27;s avatar" height="64" width="64" src="img/common/yui-avatar.png" />
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">YUI Library</h5>
-                  <h4 className="email-subject">You have 5 bugs assigned to you</h4>
-                  <p className="email-desc">
-                      Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.
-                  </p>
-              </div>
-          </div>
-
-          <div className="email-item pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="Reid Burke&#x27;s avatar" height="64" width="64" src="img/common/reid-avatar.png" />
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">Reid Burke</h5>
-                  <h4 className="email-subject">Re: Design Language</h4>
-                  <p className="email-desc">
-                      Excepteur sint occaecat cupidatat non proident, sunt in culpa.
-                  </p>
-              </div>
-          </div>
-
-          <div className="email-item pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="Andrew Wooldridge&#x27;s avatar" height="64" width="64" src="img/common/andrew-avatar.png" />
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">Andrew Wooldridge</h5>
-                  <h4 className="email-subject">YUI Blog Updates?</h4>
-                  <p className="email-desc">
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-                  </p>
-              </div>
-          </div>
-
-          <div className="email-item pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="Yahoo! Finance&#x27;s Avatar" height="64" width="64" src="img/common/yfinance-avatar.png" />
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">Yahoo! Finance</h5>
-                  <h4 className="email-subject">How to protect your finances from winter storms</h4>
-                  <p className="email-desc">
-                      Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.
-                  </p>
-              </div>
-          </div>
-
-          <div className="email-item pure-g">
-              <div className="pure-u">
-                  <img className="email-avatar" alt="Yahoo! News&#x27; avatar" height="64" width="64" src="img/common/ynews-avatar.png" />
-
-              </div>
-
-              <div className="pure-u-3-4">
-                  <h5 className="email-name">Yahoo! News</h5>
-                  <h4 className="email-subject">Summary for April 3rd, 2012</h4>
-                  <p className="email-desc">
-                      We found 10 news articles that you may like.
-                  </p>
-              </div>
-          </div>
+        {emailItems}
       </div>
     );
   }
@@ -206,12 +127,21 @@ var App = React.createClass({
     return (
       <div id="layout" className="content pure-g">
           <Nav />
-          <List />
+          <List mails={this.props.mails}/>
           <Main />
       </div>
     );
   }
 });
 
-React.renderComponent(<App />, document.body);
+var SAMPLE_DATA = [
+  {"unread": false, "selected": true, "desc": "Hey, I just wanted to check in with you from Toronto. I got here earlier today.", "name": "Tilo Mitra", "avatar": "img/common/tilo-avatar.png", "subject": "Hello from Toronto"},
+  {"unread": true, "selected": false, "desc": "Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.", "name": "Eric Ferraiuolo", "avatar": "img/common/ericf-avatar.png", "subject": "Re: Pull Requests"},
+  {"unread": true, "selected": false, "desc": "Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.", "name": "YUI Library", "avatar": "img/common/yui-avatar.png", "subject": "You have 5 bugs assigned to you"},
+  {"unread": false, "selected": false, "desc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa.", "name": "Reid Burke", "avatar": "img/common/reid-avatar.png", "subject": "Re: Design Language"},
+  {"unread": false, "selected": false, "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.", "name": "Andrew Wooldridge", "avatar": "img/common/andrew-avatar.png", "subject": "YUI Blog Updates?"},
+  {"unread": false, "selected": false, "desc": "Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.", "name": "Yahoo! Finance", "avatar": "img/common/yfinance-avatar.png", "subject": "How to protect your finances from winter storms"}
+];
+
+React.renderComponent(<App mails={SAMPLE_DATA} />, document.body);
 

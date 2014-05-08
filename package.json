@@ -1,0 +1,14 @@
+{
+  "name": "react-email-client",
+  "version": "0.0.0",
+  "description": "react email client based on pureCSS.io layout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "hapi": "~4.1.0"
+  }
+}

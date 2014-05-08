@@ -72,19 +72,19 @@ var EmailItem = React.createClass({
 });
 var List = React.createClass({
   render: function() {
-    emailItems = this.props.mails.map(function(mail) {
+    emailItems = this.props.mails.map(function(mail, i) {
       return (
         <EmailItem
           name={mail.name}
           subject={mail.subject}
-          selected={mail.selected}
+          selected={this.props.selected === i}
           unread={mail.unread}
           avatar={mail.avatar}
           >
           {mail.desc}
         </EmailItem>
       );
-    });
+    }.bind(this));
 
     return (
       <div id="list" className="pure-u-1">
@@ -127,20 +127,22 @@ var App = React.createClass({
     return (
       <div id="layout" className="content pure-g">
           <Nav />
-          <List mails={this.props.mails}/>
-          <Main />
+          <List
+            mails={this.props.mails}
+            selected={0} />
+          <Main mail={this.props.mails[0]}/>
       </div>
     );
   }
 });
 
 var SAMPLE_DATA = [
-  {"unread": false, "selected": true, "desc": "Hey, I just wanted to check in with you from Toronto. I got here earlier today.", "name": "Tilo Mitra", "avatar": "img/common/tilo-avatar.png", "subject": "Hello from Toronto"},
-  {"unread": true, "selected": false, "desc": "Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.", "name": "Eric Ferraiuolo", "avatar": "img/common/ericf-avatar.png", "subject": "Re: Pull Requests"},
-  {"unread": true, "selected": false, "desc": "Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.", "name": "YUI Library", "avatar": "img/common/yui-avatar.png", "subject": "You have 5 bugs assigned to you"},
-  {"unread": false, "selected": false, "desc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa.", "name": "Reid Burke", "avatar": "img/common/reid-avatar.png", "subject": "Re: Design Language"},
-  {"unread": false, "selected": false, "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.", "name": "Andrew Wooldridge", "avatar": "img/common/andrew-avatar.png", "subject": "YUI Blog Updates?"},
-  {"unread": false, "selected": false, "desc": "Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.", "name": "Yahoo! Finance", "avatar": "img/common/yfinance-avatar.png", "subject": "How to protect your finances from winter storms"}
+  {"unread": false, "desc": "Hey, I just wanted to check in with you from Toronto. I got here earlier today.", "name": "Tilo Mitra", "avatar": "img/common/tilo-avatar.png", "subject": "Hello from Toronto"},
+  {"unread": true, "desc": "Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.", "name": "Eric Ferraiuolo", "avatar": "img/common/ericf-avatar.png", "subject": "Re: Pull Requests"},
+  {"unread": true, "desc": "Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.", "name": "YUI Library", "avatar": "img/common/yui-avatar.png", "subject": "You have 5 bugs assigned to you"},
+  {"unread": false, "desc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa.", "name": "Reid Burke", "avatar": "img/common/reid-avatar.png", "subject": "Re: Design Language"},
+  {"unread": false, "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.", "name": "Andrew Wooldridge", "avatar": "img/common/andrew-avatar.png", "subject": "YUI Blog Updates?"},
+  {"unread": false, "desc": "Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.", "name": "Yahoo! Finance", "avatar": "img/common/yfinance-avatar.png", "subject": "How to protect your finances from winter storms"}
 ];
 
 React.renderComponent(<App mails={SAMPLE_DATA} />, document.body);

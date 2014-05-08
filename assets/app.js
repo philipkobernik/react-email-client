@@ -67,7 +67,7 @@ var List = React.createClass({
           name={mail.name}
           subject={mail.subject}
           selected={this.props.selected === i}
-          unread={mail.unread}
+          unread={mail.unread && !this.props.read[i]}
           avatar={mail.avatar}
           >
           {mail.desc}
@@ -114,10 +114,15 @@ var Nav = React.createClass({
 var App = React.createClass({
   handleEmailSelected: function(index) {
     console.log('email ' + index + ' selected');
-    this.setState({selected: index});
+    var read = this.state.read
+    read[this.state.selected] = true
+    this.setState({
+      selected: index,
+      read: read
+    });
   },
   getInitialState: function() {
-    return {selected: 0};
+    return {selected: 0, read: {}};
   },
   render: function() {
     return (
@@ -126,6 +131,7 @@ var App = React.createClass({
           <List
             mails={this.props.mails}
             selected={this.state.selected}
+            read={this.state.read}
             onEmailSelected={this.handleEmailSelected} />
           <Main
             mail={this.props.mails[this.state.selected]}/>

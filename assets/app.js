@@ -43,9 +43,17 @@ var Main = React.createClass({
   }
 });
 var EmailItem = React.createClass({
+
   render: function() {
+    var classes = 'email-item pure-g';
+    if(this.props.selected) {
+      classes += ' email-item-selected';
+    }
+    if(this.props.unread) {
+      classes += ' email-item-unread';
+    }
     return (
-      <div className="email-item email-item-selected pure-g">
+      <div className={classes}>
           <div className="pure-u">
               <img className="email-avatar" alt={this.props.name + '\' avatar'} height="64" width="64" src={this.props.avatar} />
           </div>
@@ -70,6 +78,7 @@ var List = React.createClass({
           name="Tilo Mitra"
           subject="Hello from Toronto"
           selected={true}
+          unread={false}
           avatar="img/common/tilo-avatar.png"
           >
           Hey, I just wanted to check in with you from Toronto. I got here earlier today.

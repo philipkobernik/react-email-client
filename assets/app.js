@@ -69,6 +69,7 @@ var List = React.createClass({
           selected={this.props.selected === i}
           unread={mail.unread && !this.props.read[i]}
           avatar={mail.avatar}
+          key={i}
           >
           {mail.desc}
         </EmailItem>

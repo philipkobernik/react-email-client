@@ -47,14 +47,14 @@ var EmailItem = React.createClass({
     return (
       <div className="email-item email-item-selected pure-g">
           <div className="pure-u">
-              <img className="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png" />
+              <img className="email-avatar" alt={this.props.name + '\' avatar'} height="64" width="64" src={this.props.avatar} />
           </div>
 
           <div className="pure-u-3-4">
-              <h5 className="email-name">Tilo Mitra</h5>
-              <h4 className="email-subject">Hello from Toronto</h4>
+              <h5 className="email-name">{this.props.name}</h5>
+              <h4 className="email-subject">{this.props.subject}</h4>
               <p className="email-desc">
-                  Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                  {this.props.children}
               </p>
           </div>
       </div>
@@ -66,7 +66,14 @@ var List = React.createClass({
   render: function() {
     return (
       <div id="list" className="pure-u-1">
-        <EmailItem />
+        <EmailItem
+          name="Tilo Mitra"
+          subject="Hello from Toronto"
+          selected={true}
+          avatar="img/common/tilo-avatar.png"
+          >
+          Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+        </EmailItem>
 
           <div className="email-item email-item-unread pure-g">
               <div className="pure-u">

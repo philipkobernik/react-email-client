@@ -29,5 +29,16 @@ server.route({
   }
 });
 
+server.route({
+  path: "/img/{path*}",
+  method: "GET",
+  handler: {
+    directory: {
+      path: "./img",
+      listing: false,
+      index: false
+    }
+  }
+});
 
 server.start();

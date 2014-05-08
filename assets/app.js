@@ -29,7 +29,7 @@ var App = React.createClass({
     <div id="list" class="pure-u-1">
         <div class="email-item email-item-selected pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">
+                <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -43,7 +43,7 @@ var App = React.createClass({
 
         <div class="email-item email-item-unread pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="64" width="64" src="img/common/ericf-avatar.png">
+                <img class="email-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="64" width="64" src="img/common/ericf-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -57,7 +57,7 @@ var App = React.createClass({
 
         <div class="email-item email-item-unread pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="YUI&#x27;s avatar" height="64" width="64" src="img/common/yui-avatar.png">
+                <img class="email-avatar" alt="YUI&#x27;s avatar" height="64" width="64" src="img/common/yui-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -71,7 +71,7 @@ var App = React.createClass({
 
         <div class="email-item pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Reid Burke&#x27;s avatar" height="64" width="64" src="img/common/reid-avatar.png">
+                <img class="email-avatar" alt="Reid Burke&#x27;s avatar" height="64" width="64" src="img/common/reid-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -85,7 +85,7 @@ var App = React.createClass({
 
         <div class="email-item pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Andrew Wooldridge&#x27;s avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                <img class="email-avatar" alt="Andrew Wooldridge&#x27;s avatar" height="64" width="64" src="img/common/andrew-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -99,7 +99,7 @@ var App = React.createClass({
 
         <div class="email-item pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Yahoo! Finance&#x27;s Avatar" height="64" width="64" src="img/common/yfinance-avatar.png">
+                <img class="email-avatar" alt="Yahoo! Finance&#x27;s Avatar" height="64" width="64" src="img/common/yfinance-avatar.png" />
             </div>
 
             <div class="pure-u-3-4">
@@ -113,7 +113,8 @@ var App = React.createClass({
 
         <div class="email-item pure-g">
             <div class="pure-u">
-                <img class="email-avatar" alt="Yahoo! News&#x27; avatar" height="64" width="64" src="img/common/ynews-avatar.png">
+                <img class="email-avatar" alt="Yahoo! News&#x27; avatar" height="64" width="64" src="img/common/ynews-avatar.png" />
+
             </div>
 
             <div class="pure-u-3-4">
@@ -157,7 +158,7 @@ var App = React.createClass({
                     Donec sagittis dolor ut quam pharetra pretium varius in nibh. Suspendisse potenti. Donec imperdiet, velit vel adipiscing bibendum, leo eros tristique augue, eu rutrum lacus sapien vel quam. Nam orci arcu, luctus quis vestibulum ut, ullamcorper ut enim. Morbi semper erat quis orci aliquet condimentum. Nam interdum mauris sed massa dignissim rhoncus.
                 </p>
                 <p>
-                    Regards,<br>
+                    Regards,<br />
                     Tilo
                 </p>
             </div>

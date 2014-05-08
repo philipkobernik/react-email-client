@@ -86,6 +86,14 @@ var List = React.createClass({
 
 var Nav = React.createClass({
   render: function() {
+    var unreadCount = this.props.mails.reduce(
+      function(prev, message, index, array) {
+        if(message.unread && !this.props.read[index]){
+          return prev+1;
+        }else{
+          return prev;
+        }
+      }.bind(this), 0);
     return (
       <div id="nav" className="pure-u">
           <a href="#" className="nav-menu-button">Menu</a>
@@ -95,7 +103,7 @@ var Nav = React.createClass({
 
               <div className="pure-menu pure-menu-open">
                   <ul>
-                      <li><a href="#">Inbox <span className="email-count">(2)</span></a></li>
+                      <li><a href="#">Inbox <span className="email-count">({unreadCount})</span></a></li>
                       <li><a href="#">Important</a></li>
                       <li><a href="#">Sent</a></li>
                       <li><a href="#">Drafts</a></li>
@@ -128,7 +136,9 @@ var App = React.createClass({
   render: function() {
     return (
       <div id="layout" className="content pure-g">
-          <Nav />
+          <Nav
+            read={this.state.read}
+            mails={this.props.mails} />
           <List
             mails={this.props.mails}
             selected={this.state.selected}

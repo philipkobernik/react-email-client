@@ -123,14 +123,18 @@ var Nav = React.createClass({
 });
 
 var App = React.createClass({
+  getInitialState: function() {
+    return {selected: 0};
+  },
   render: function() {
     return (
       <div id="layout" className="content pure-g">
           <Nav />
           <List
             mails={this.props.mails}
-            selected={0} />
-          <Main mail={this.props.mails[0]}/>
+            selected={this.state.selected} />
+          <Main
+            mail={this.props.mails[this.state.selected]}/>
       </div>
     );
   }
